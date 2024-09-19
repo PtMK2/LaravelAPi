@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Book;
 use App\Repositories\BookRepository;
 
 class BookService
@@ -14,8 +13,15 @@ class BookService
         $this->books_repository = $books_repository;
     }
 
-    public function createBook(array $data): void
+    /**
+     * 
+     * Create a new book
+     *
+     * @param array $data
+     * @return Book
+     */
+    public function createBook(array $data): Book
     {
-        $this->books_repository->create($data);
+        return $this->books_repository->create($data);
     }
 }
